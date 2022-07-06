@@ -1,12 +1,17 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, KeyboardAvoidingView, Platform } from "react-native";
 
 import Form from "../components/Form";
 
-function SignUp() {
+function SignUp({ navigation }) {
 	return (
-		<View style={styles.wrapper}>
-			<Form header='SignUp' name={true} />
-		</View>
+		<KeyboardAvoidingView
+			style={styles.wrapper}
+			behavior={Platform.OS === "ios" ? "padding" : "height"}
+		>
+			<View style={styles.wrapper}>
+				<Form header='SignUp' name={true} navigateTo='Login' navigation={navigation} />
+			</View>
+		</KeyboardAvoidingView>
 	);
 }
 

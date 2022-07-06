@@ -3,7 +3,7 @@ import { View, TextInput, Text, StyleSheet } from "react-native";
 
 import Button from "./Button";
 
-function Form({ header, name }) {
+function Form({ header, name, navigation, navigateTo }) {
 	const [fullName, setFullName] = useState("");
 	const [userName, setUserName] = useState("");
 	const [password, setPassword] = useState("");
@@ -41,7 +41,13 @@ function Form({ header, name }) {
 				</View>
 			</View>
 			<View>
-				<Button text={header} />
+				<Button
+					text={header}
+					onPress={() => {
+						// TODO:  check for the user input
+						navigation.navigate(navigateTo);
+					}}
+				/>
 			</View>
 		</View>
 	);

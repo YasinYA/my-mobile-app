@@ -2,10 +2,10 @@ import { View, StyleSheet } from "react-native";
 
 import Form from "../components/Form";
 
-function Login() {
+function Login({ navigation }) {
 	return (
 		<View style={styles.wrapper}>
-			<Form header='Login' name={false} />
+			<Form header='Login' name={false} navigation={navigation} navigateTo='Home' />
 		</View>
 	);
 }
