@@ -23,6 +23,7 @@ export default function App() {
 					headerTitleStyle: {
 						fontWeight: "bold",
 					},
+					headerTitleAlign: "center",
 				}}
 				initialRouteName='SignUp'
 				style={styles.wrapper}
