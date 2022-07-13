@@ -1,9 +1,10 @@
+import { Children } from "react";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
-function Button({ text, onPress }) {
+function Button({ children, onPress }) {
 	return (
 		<TouchableOpacity style={styles.button} onPress={onPress}>
-			<Text>{text}</Text>
+			<Text>{children}</Text>
 		</TouchableOpacity>
 	);
 }

@@ -2,6 +2,7 @@ import { View, Image, Text, StyleSheet, Pressable } from "react-native";
 
 export default function Book({ id, image, title, authors }) {
 	return (
+		// TODO: When pressed a book should go to a details page.
 		<Pressable>
 			<View style={styles.container}>
 				<View style={styles.imgWrapper}>

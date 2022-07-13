@@ -1,14 +1,11 @@
-import { View, StyleSheet, Platform } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 import Form from "../components/Form";
 
 function SignUp({ navigation }) {
 	return (
-		<KeyboardAwareScrollView
-			style={styles.wrapper}
-			behavior={Platform.OS === "ios" ? "padding" : "height"}
-		>
+		<KeyboardAwareScrollView style={styles.wrapper}>
 			<View style={styles.wrapper}>
 				<Form header='SignUp' name={true} navigateTo='Login' navigation={navigation} />
 			</View>

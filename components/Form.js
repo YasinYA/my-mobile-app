@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { View, TextInput, Text, StyleSheet } from "react-native";
+import { Button, Icon } from "@ui-kitten/components";
 
-import Button from "./Button";
+// import Button from "./Button";
+
+const SignUpIcon = (props) => <Icon name='arrow-circle-right-outline' {...props} />;
 
 function Form({ header, name, navigation, navigateTo }) {
 	const [fullName, setFullName] = useState("");
@@ -42,12 +45,15 @@ function Form({ header, name, navigation, navigateTo }) {
 			</View>
 			<View>
 				<Button
-					text={header}
 					onPress={() => {
 						// TODO:  check for the user input
 						navigation.navigate(navigateTo);
 					}}
-				/>
+					appearance='outline'
+					accessoryRight={SignUpIcon}
+				>
+					{header}
+				</Button>
 			</View>
 		</View>
 	);

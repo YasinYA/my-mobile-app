@@ -1,5 +1,5 @@
-import { View, Text } from "react-native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import { Button, Icon } from "@ui-kitten/components";
 
 import Books from "./Books";
 import Settings from "./Settings";
@@ -10,7 +10,13 @@ const Tabs = createMaterialBottomTabNavigator();
 function Home() {
 	return (
 		<Tabs.Navigator>
-			<Tabs.Screen name='Books' component={Books} />
+			<Tabs.Screen
+				name='Books'
+				options={{
+					tabBarIcon: ({ props }) => <Icon {...props} name='book-outline' />,
+				}}
+				component={Books}
+			/>
 			<Tabs.Screen name='SavedBooks' component={SavedBooks} />
 			<Tabs.Screen name='Settings' component={Settings} />
 		</Tabs.Navigator>
