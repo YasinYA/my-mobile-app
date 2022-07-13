@@ -3,6 +3,7 @@ import { View, TextInput, Text, StyleSheet } from "react-native";
 import { Button, Icon } from "@ui-kitten/components";
 
 // import Button from "./Button";
+// wakaa
 
 const SignUpIcon = (props) => <Icon name='arrow-circle-right-outline' {...props} />;
 
