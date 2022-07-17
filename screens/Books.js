@@ -1,33 +1,22 @@
-import { useState, useEffect } from "react";
-import { View, Text, StyleSheet, FlatList, ActivityIndicator } from "react-native";
+import { View, StyleSheet, FlatList } from "react-native";
 
 import Book from "../components/Book";
+import Loading from "../components/Loading";
 
-export default function Books() {
-	const [books, setBooks] = useState([]);
-	const [loading, setLoading] = useState(true);
+import { useBooks } from "../context/booksContext";
 
-	async function getBooks() {
-		const response = await fetch("https://www.dbooks.org/api/recent");
-		const data = await response.json();
-		if (data.status === "ok") setBooks(data.books);
-	}
-
-	useEffect(() => {
-		getBooks();
-		setLoading(false);
-	}, []);
+export default function Books({ navigation }) {
+	const { books, loading } = useBooks();
 
 	return (
 		<View style={styles.container}>
-			<Text style={styles.header}>Books</Text>
 			{loading ? (
-				<ActivityIndicator />
+				<Loading />
 			) : (
 				<FlatList
 					data={books}
 					renderItem={({ item }) => {
-						return <Book {...item} />;
+						return <Book navigation={navigation} {...item} />;
 					}}
 					keyExtractor={(item) => item.id}
 				/>
@@ -41,6 +30,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: "center",
 		alignContent: "center",
+		marginVertical: 30,
 	},
 	header: {
 		fontSize: 40,

@@ -7,14 +7,13 @@ import { Button, Icon } from "@ui-kitten/components";
 
 const SignUpIcon = (props) => <Icon name='arrow-circle-right-outline' {...props} />;
 
-function Form({ header, name, navigation, navigateTo }) {
+function Form({ header, name, onPress }) {
 	const [fullName, setFullName] = useState("");
 	const [userName, setUserName] = useState("");
 	const [password, setPassword] = useState("");
 
 	return (
 		<View style={styles.myClass}>
-			<Text style={styles.header}>{header}</Text>
 			<View style={styles.inputWrapper}>
 				{name && (
 					<View style={styles.formControl}>
@@ -45,14 +44,7 @@ function Form({ header, name, navigation, navigateTo }) {
 				</View>
 			</View>
 			<View>
-				<Button
-					onPress={() => {
-						// TODO:  check for the user input
-						navigation.navigate(navigateTo);
-					}}
-					appearance='outline'
-					accessoryRight={SignUpIcon}
-				>
+				<Button onPress={onPress} appearance='outline' accessoryRight={SignUpIcon}>
 					{header}
 				</Button>
 			</View>

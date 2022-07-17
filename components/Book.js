@@ -1,16 +1,15 @@
 import { View, Image, Text, StyleSheet, Pressable } from "react-native";
 
-export default function Book({ id, image, title, authors }) {
+export default function Book({ id, image, title, authors, navigation }) {
 	return (
-		// TODO: When pressed a book should go to a details page.
-		<Pressable>
+		<Pressable onPress={() => navigation.navigate("BookDetail", { id, name: title })}>
 			<View style={styles.container}>
 				<View style={styles.imgWrapper}>
 					<Image style={styles.img} source={{ uri: image }} />
 				</View>
 				<View style={styles.textWrapper}>
 					<Text center style={styles.title}>
-						{title}
+						{title} {id}
 					</Text>
 					<Text center style={styles.authors}>
 						{authors}
