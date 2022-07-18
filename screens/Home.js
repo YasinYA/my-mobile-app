@@ -31,7 +31,7 @@ function Home() {
 			initialRouteName='Books'
 			screenOptions={({ route }) => {
 				return {
-					tabBarIcon: ({ focused, color, size }) => {
+					tabBarIcon: ({ focused, color, size = 26 }) => {
 						let iconName;
 
 						if (route.name === "Books") {
@@ -42,7 +42,7 @@ function Home() {
 							iconName = focused ? "cog" : "cog-outline";
 						}
 
-						return <IonIcons name={iconName} size={26} color={color} />;
+						return <IonIcons name={iconName} size={size} color={color} />;
 					},
 				};
 			}}
@@ -58,8 +58,6 @@ function Home() {
 			<Tabs.Screen name='Settings' component={Settings} />
 		</Tabs.Navigator>
 	);
-	// TODO: Change the title tabs screens title.
-	// TODO: CREATE ICONS FOR THE TABS
 }
 
 export default Home;
