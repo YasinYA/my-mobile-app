@@ -18,7 +18,7 @@ const BooksContextProvider = ({ children }) => {
 	}
 
 	function removeSavedBook(id) {
-		return savedBooks.filter((book) => !parseInt(book.id) === parseInt(id));
+		return savedBooks.filter((book) => parseInt(book.id) !== parseInt(id));
 	}
 
 	useEffect(() => {
